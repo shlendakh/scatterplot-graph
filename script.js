@@ -48,9 +48,9 @@ document.addEventListener('DOMContentLoaded', function() {
           const tooltip = d3.select("#tooltip");
           tooltip.transition().duration(200).style("opacity", 1);
           tooltip.html(`${d.Name}: ${d.Nationality}<br>Year: ${d.Year}, Time: ${d.Time}<br>${d.Doping ? d.Doping : 'No doping allegations'}`)
-            .attr("data-year", d.Year)
-            .style("left", (event.pageX + 5) + "px")
-            .style("top", (event.pageY - 28) + "px");
+            .attr("data-year", new Date(d.Year, 0, 1))
+            .style("left", (event.pageX - 150) + "px")
+            .style("top", (event.pageY - 300) + "px");
         })
         .on("mouseout", function() {
           d3.select("#tooltip").transition().duration(500).style("opacity", 0);
